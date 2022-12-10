@@ -12,7 +12,9 @@ bot.on('message', async (msg) => {
   const chatId = msg.chat.id
 
   try {
+
     if (msg.text === actions.startPoll) {
+      await bot.deleteMessage(chatId, msg.message_id)
       await startPoll(chatId)
     }
 
